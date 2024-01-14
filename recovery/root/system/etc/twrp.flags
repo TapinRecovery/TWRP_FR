@@ -1,0 +1,35 @@
+# mount point       fstype    device                                                           flags
+
+/cache              ext4      /dev/block/by-name/rescue                     flags=display="Cache";
+
+/persist            emmc      /dev/block/by-name/persist                    flags=display="Persist";backup=1;flashimg=1
+/cust               ext4      /dev/block/by-name/cust                       flags=display="Cust";
+/cust_image         emmc      /dev/block/by-name/cust                       flags=display="Cust";flashimg=1
+
+/protect_f          emmc      /dev/block/by-name/protect1                   flags=display="Protect_f";backup=1;
+/protect_s          emmc      /dev/block/by-name/protect2                   flags=display="Protect_s";backup=1;
+/nvdata             ext4      /dev/block/by-name/nvdata                     flags=display="Nvdata";backup=1;
+/nvcfg              emmc      /dev/block/by-name/nvcfg                      flags=display="Nvcfg";backup=1;
+/sec1               emmc      /dev/block/by-name/sec1                       flags=display="Sec1";backup=1;
+/flashinfo          emmc      /dev/block/by-name/flashinfo                  flags=display="Flashinfo";backup=1;
+
+/persistent         emmc      /dev/block/by-name/frp                        flags=display="Persistent";backup=1;
+/nvram              emmc      /dev/block/by-name/nvram                      flags=display="Nvram";backup=1;
+/proinfo            emmc      /dev/block/by-name/proinfo                    flags=display="Proinfo";backup=1;
+
+/logo               emmc      /dev/block/by-name/logo                       flags=display="Logo"
+/boot               emmc      /dev/block/by-name/boot                       flags=display="Boot";backup=1;flashimg=1;slotselect;
+/expdb              emmc      /dev/block/by-name/expdb
+/seccfg             emmc      /dev/block/by-name/seccfg   
+/tee                emmc      /dev/block/by-name/tee1                       flags=slotselect;            
+/spmfw              emmc      /dev/block/by-name/spmfw                      flags=slotselect;      
+/dtbo               emmc      /dev/block/by-name/dtbo                       flags=slotselect;
+/otp                emmc      /dev/block/by-name/otp
+/vbmeta             emmc      /dev/block/by-name/vbmeta                     flags=slotselect;display="Vbmeta";backup=1;flashimg=1;
+
+## Internal storage 
+/storage            f2fs      /data/media/0                                                    flags=display="Internal Storage";usermrf;backup=1;fsflags="bind";removable;
+
+## Removable storage
+/sd_card            vfat      /dev/block/mmcblk0p1  /dev/block/mmcblk0                         flags=display="SD Card";storage;wipeingui;removable;
+/usb_otg            vfat      /dev/block/sda1  /dev/block/sda                                  flags=display="USB OTG";storage;wipeingui;removable;fsflags="utf8"
